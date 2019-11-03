@@ -1,3 +1,3 @@
 # Password Generator
 
-## Use this page to generate passwords
+### Use this page to generate passwords
