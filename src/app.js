@@ -27,3 +27,7 @@ app.get('', (req, res) => {
         name: 'Alex Santos'
     })
 })
+
+app.listen(port, () => {
+    console.log('Server is up on port ' + port)
+})
