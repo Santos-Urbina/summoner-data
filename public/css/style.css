@@ -1,11 +1,11 @@
 html,body {
     height: 100vh;
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(47, 47, 58);
 }
 
 #wrapper {
     width:50%;
-    height: 75vh;
+    height: 100vh;
     margin: auto;
 }
 #header {

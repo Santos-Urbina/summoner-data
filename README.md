@@ -1,3 +1,3 @@
-# Password Generator
+# Summoner Data
 
-### Use this page to generate passwords
+### Use this page to look up your League of Legends summoner data.
