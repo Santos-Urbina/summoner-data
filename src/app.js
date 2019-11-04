@@ -6,3 +6,4 @@ const summoner = require('./utils/summoner')
 
 const app = express()
 const port = process.env.PORT || 8080
+
