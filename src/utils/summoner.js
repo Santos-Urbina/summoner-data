@@ -5,10 +5,19 @@ const chalk = require('chalk');
 const api_key = '';
 
 const summoner = (summonerName, callback) => {
-    const url = `https://na1.api.riotgames.com/lol/summoner/v4/summoners/by-name/${summonerName}?api_key=${api_key}`;
+    const url = `https://na1.api.riotgames.com/lol/summoner/v4/summoners/by-name/${summonerName}`;
     console.log(chalk.green('Endpoint: ') + url);
 
-    request({ url, json: true }, (error, { body }) => {
+    //Object for setting http request headers/options
+    const options = {
+        url,
+        json: true,
+        headers: {
+            "X-Riot-Token": api_key
+        }
+    }
+
+    request(options, (error, { body }) => {
         if (error) {
             console.log(chalk.red('Error connecting to API'));
             callback('Unable to connect to API');
