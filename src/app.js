@@ -30,7 +30,7 @@ app.get('', (req, res) => {
 });
 
 app.get('/summoner', (req, res) => {
-    const summonerName = req.query.summonerName;
+    const summonerName = req.query.name;
 
     if(!summonerName) {
         return res.send({
@@ -45,11 +45,9 @@ app.get('/summoner', (req, res) => {
         }
 
         res.send({
-            id: id,
-            summonerLevel: summonerLevel
-        })
+            name: summonerName
+        });
 
-        console.log(summonerLevel);
     });
 });
 

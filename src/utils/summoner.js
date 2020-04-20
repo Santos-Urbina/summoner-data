@@ -2,7 +2,7 @@ const request  = require('request');
 const chalk = require('chalk');
 
 //TODO: refactor so we don't share the api key! And use the key as a header param NOT a query param!
-const api_key = '';
+const api_key = 'RGAPI-b18000f4-8d1c-488d-8b25-5b3c104aedd4';
 
 const summoner = (summonerName, callback) => {
     const url = `https://na1.api.riotgames.com/lol/summoner/v4/summoners/by-name/${summonerName}api_key=${api_key}`;
@@ -19,7 +19,7 @@ const summoner = (summonerName, callback) => {
             console.log(chalk.red('Error connecting to API'));
             callback('API key has expired.');
         } else {
-            console.log(chalk.red(`Found summoner ${summonerName}`));
+            console.log(chalk.green(`Found summoner ${summonerName}`));
             callback(undefined, {
                 name: body.name,
                 level: body.summonerLavel

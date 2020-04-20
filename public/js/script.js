@@ -15,6 +15,7 @@ form.addEventListener('submit', (e) => {
                 console.log('Failed to fetch API data');
                 console.log(data);
             } else {
+                console.log('Setting name and level elements');
                 name.textContent = data.name;
                 level.textContent = data.level;
             }
