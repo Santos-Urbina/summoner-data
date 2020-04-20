@@ -1,8 +1,8 @@
 const request  = require('request');
 const chalk = require('chalk');
 
-//TODO: refactor so we don't share the api key! And use the key as a header param NOT a query param!
-const api_key = '';
+const config = require('../../config.json');
+const api_key = config.key;
 
 const summoner = (summonerName, callback) => {
     const url = `https://na1.api.riotgames.com/lol/summoner/v4/summoners/by-name/${summonerName}`;
