@@ -39,13 +39,14 @@ app.get('/summoner', (req, res) => {
     }
 
     //Runs only if we are provided a name
-    summoner(summonerName, (error, { id } = {}) => {
+    summoner(summonerName, (error, { name, level } = {}) => {
         if(error) {
             return res.send({ error });
         }
 
         res.send({
-            name: summonerName
+            name,
+            level
         });
 
     });
