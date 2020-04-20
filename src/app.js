@@ -1,33 +1,58 @@
-const path = require('path')
-const express = require('express')
-const hbs = require('hbs')
+const path = require('path');
+const express = require('express');
+const hbs = require('hbs');
+const chalk = require('chalk');
 
-const summoner = require('./utils/summoner')
+//Script to get data from api
+const summoner = require('./utils/summoner');
 
-const app = express()
-const port = process.env.PORT || 8080
+const app = express();
+const port = process.env.PORT || 8080;
 
 //Define paths express config
-const publicDirectoryPath = path.join(__dirname, '../public')
-const viewsPath = path.join(__dirname, '../templates/views')
-const partialsPath = path.join(__dirname, '../templates/partials')
+const publicDirectoryPath = path.join(__dirname, '../public');
+const viewsPath = path.join(__dirname, '../templates/views');
+const partialsPath = path.join(__dirname, '../templates/partials');
 
 //Set up handlebars as view engine, set views location
-app.set('view enginge', 'hbs')
-app.set('views', viewsPath)
-hbs.registerPartials(partialsPath)
+app.set('view engine', 'hbs');
+app.set('views', viewsPath);
+hbs.registerPartials(partialsPath);
 
 //Set up static directory to serve
-app.use(express.static(publicDirectoryPath))
+app.use(express.static(publicDirectoryPath));
 
 //Render views
 app.get('', (req, res) => {
     res.render('index', {
-        title: 'Summoner Data',
-        name: 'Alex Santos'
-    })
-})
+        title: 'Summoner Data'
+    });
+});
+
+app.get('/summoner', (req, res) => {
+    const summonerName = req.query.summonerName;
+
+    if(!summonerName) {
+        return res.send({
+            error: 'You must provide a summoner name.'
+        });
+    }
+
+    //Runs only if we are provided a name
+    summoner(summonerName, (error, { id } = {}) => {
+        if(error) {
+            return res.send({ error });
+        }
+
+        res.send({
+            id: id,
+            summonerLevel: summonerLevel
+        })
+
+        console.log(summonerLevel);
+    });
+});
 
 app.listen(port, () => {
-    console.log('Server is up on port ' + port)
-})
+    console.log(chalk.black.bgCyan.bold(`Server is up on port ${port}`));
+});

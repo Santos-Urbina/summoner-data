@@ -5,12 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="https://use.fontawesome.com/releases/v5.11.2/js/all.js"></script>
-    <link rel="stylesheet" href="./style.css">
-    <title>Password Generator</title>
+    <link rel="stylesheet" href="css/style.css">
+    <title>Summoner Data</title>
 </head>
 <body>
-    <div id="wrapper">
-        
+    <div id="container">
+        <div id="search">
+            {{>search}}
+        </div>
+        <div id="summonerData">
+            <h1 id="name">Summoner Name</h1>
+            <h2 id="level">Summoner Level</h2>
+        </div>
     </div>
+
+    <script src="/js/script.js"></script>
 </body>
 </html>
