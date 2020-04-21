@@ -2,6 +2,7 @@ const form = document.querySelector('form');
 const search = document.querySelector('input');
 const name = document.querySelector('#name');
 const level = document.querySelector('#level');
+const icon = document.querySelector('#icon');
 
 form.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -18,6 +19,8 @@ form.addEventListener('submit', (e) => {
                 console.log(data);
                 name.textContent = data.name;
                 level.textContent = data.level;
+                //This works, just need correct headers for this endpoint
+                icon.src = `http://ddragon.leagueoflegends.com/cdn/6.3.1/img/profileicon/${data.iconID}.png`;
             }
         } );
     } );

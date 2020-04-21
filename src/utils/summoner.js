@@ -33,7 +33,8 @@ const summoner = (summonerName, callback) => {
         } else {
             callback(undefined, {
                 name: body.name,
-                level: body.summonerLevel
+                level: body.summonerLevel,
+                iconID: body.profileIconId
             });
 
             console.log(chalk.green(`Found summoner ${summonerName}`));
