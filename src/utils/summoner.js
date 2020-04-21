@@ -23,11 +23,14 @@ const summoner = (summonerName, callback) => {
             callback('Unable to connect to API');
         } else if (body.status) {
             //If we get an error code from the api
-            if (body.status.status_code === 404) {
-                console.log(chalk.red('Error connecting to API'));
+            if (body.status.status_code === 401) {
+                console.log(chalk.red('Unauthorized. Check API key.'));
+                callback('Unauthorized. Check API key');
+            } else if (body.status.status_code === 404) {
+                console.log(chalk.red('Unable to find summoner'));
                 callback('Unable to find summoner. Try another search.');
             } else if (body.status.status_code === 403) {
-                console.log(chalk.red('Error connecting to API'));
+                console.log(chalk.red('Error connecting to API. API key may have expired.'));
                 callback('API key has expired.');
             }
         } else {
