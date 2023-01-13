@@ -20,7 +20,7 @@ form.addEventListener('submit', (e) => {
                 name.textContent = data.name;
                 level.textContent = data.level;
                 //This works, just need correct headers for this endpoint
-                icon.src = `http://ddragon.leagueoflegends.com/cdn/6.3.1/img/profileicon/${data.iconID}.png`;
+                icon.src = `http://raw.communitydragon.org/10.1/game/assets/ux/summonericons/profileicon${data.iconID}.png`;
             }
         } );
     } );

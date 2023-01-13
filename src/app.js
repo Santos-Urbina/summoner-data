@@ -34,6 +34,7 @@ app.get('/summoner', (req, res) => {
 
     if(!summonerName) {
         return res.send({
+            //TODO: display this as an error message on the page
             error: 'You must provide a summoner name.'
         });
     }
@@ -50,6 +51,7 @@ app.get('/summoner', (req, res) => {
             iconID
         });
 
+        console.log(`${name}, ${level}, ${iconID}`);
     });
 });
 

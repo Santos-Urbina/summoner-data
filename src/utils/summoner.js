@@ -34,13 +34,13 @@ const summoner = (summonerName, callback) => {
                 callback('API key has expired.');
             }
         } else {
+            console.log(chalk.green(`Found summoner ${summonerName}`));
+
             callback(undefined, {
                 name: body.name,
                 level: body.summonerLevel,
                 iconID: body.profileIconId
             });
-
-            console.log(chalk.green(`Found summoner ${summonerName}`));
         }
     });
 }
